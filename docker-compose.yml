@@ -1,0 +1,15 @@
+version: "3.9"
+
+services:
+  client:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "4173:4173" # Vite default port
+    volumes:
+      - .:/app
+      - /app/node_modules
+    env_file:
+      - .env
+    command: ["npm", "run", "serve"]
